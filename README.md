@@ -17,3 +17,5 @@ npm i
 
 npm start
 ```
+
+![register page](./ss.png)

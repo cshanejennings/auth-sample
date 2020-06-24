@@ -1,0 +1,58 @@
+.login {
+  margin-top: 4em;
+
+  .card {
+    padding: 1em;
+    border-radius: 3px;
+  }
+
+  h5 {
+    color: #666;
+    text-align: center;
+  }
+
+  .helper-text.error {
+    color: red !important;
+  }
+}
+
+.register {
+  border-radius: 5px;
+  margin-top: 4em;
+
+  .card {
+    padding: 1em;
+    border-radius: 3px;
+  }
+
+  h5 {
+    color: #666;
+    text-align: center;
+  }
+
+  .helper-text.error {
+    color: red !important;
+  }
+}
+
+button[type="submit"] {
+  dislay: block;
+  width: 100%;
+}
+
+.btn-account-hint {
+  padding: 0.2em;
+  color: #ccc;
+
+  &:hover {
+    color: #666;
+  }
+}
+
+.auth-error {
+  background-color: #ec5353;
+  color: #fff;
+  padding: 1em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}

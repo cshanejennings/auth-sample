@@ -5,7 +5,9 @@
 ```bash
 cd api
 cp .env.example .env
+# update datbase config in .env
 composer install
+php artisan migrate
 ```
 
 - webapp

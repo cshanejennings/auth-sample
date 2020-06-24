@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Models\User;
+use App\Services\Auth\AuthProvider;
 
 class AuthService
 {
@@ -15,9 +16,8 @@ class AuthService
      */
     public function register(array $data)
     {
-        $data['password'] = bcrypt($data['password']);
-        $user = User::firstOrCreate(['email' => $data['email']], $data);
-        $token = auth()->login($user);
+        $authProvider = AuthProvider::getAuthProvider($data["driver"]);
+        $token = $authProvider->register($data);
 
         // for real application, need to send email verification
         return $this->authResponse($token);
@@ -30,9 +30,11 @@ class AuthService
      *
      * @return array
      */
-    public function login(array $credentials)
+    public function login(array $data)
     {
-        if (! $token = auth()->attempt($credentials)) {
+        $authProvider = AuthProvider::getAuthProvider($data["driver"]);
+        $token = $authProvider->register($data);
+        if (!$token) {
             return [];
         }
 
